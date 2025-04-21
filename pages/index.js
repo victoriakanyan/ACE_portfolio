@@ -2,6 +2,8 @@ import Header from '../components/Header'
 import Hero from '../components/Hero'
 import PortfolioCard from '../components/PortfolioCard'
 import Footer from '../components/Footer'
+import ScrollBG from '../components/ScrollBG'
+
 
 export default function Home() {
   const portfolio = [
@@ -22,7 +24,24 @@ export default function Home() {
   return (
     <>
       <Header />
+    <ScrollBG />
       <Hero />
+      <section className="py-20 max-w-6xl mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center text-primary mb-10">Our Work</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {portfolio.map((item, idx) => (
+            <PortfolioCard key={idx} {...item} />
+          ))}
+        </div>
+      </section>
+      <section className="py-20 max-w-6xl mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center text-primary mb-10">Our Work</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {portfolio.map((item, idx) => (
+            <PortfolioCard key={idx} {...item} />
+          ))}
+        </div>
+      </section>
       <section className="py-20 max-w-6xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-primary mb-10">Our Work</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
