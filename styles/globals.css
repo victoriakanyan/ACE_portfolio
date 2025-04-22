@@ -139,3 +139,106 @@ body {
 .animate-floatxy-3 {
   animation: floatXY3 35s ease-in-out infinite;
 }
+
+@keyframes pulseBlob {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+.animate-pulse-blob {
+  animation: pulseBlob 6s ease-in-out infinite;
+}
+
+@keyframes wander1 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(80px, -40px);
+  }
+  50% {
+    transform: translate(20px, 60px);
+  }
+  75% {
+    transform: translate(-60px, -20px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes wander2 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  30% {
+    transform: translate(-50px, 80px);
+  }
+  60% {
+    transform: translate(70px, -50px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes wander3 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  40% {
+    transform: translate(-80px, -40px);
+  }
+  70% {
+    transform: translate(60px, 50px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+.animate-wander-1 {
+  animation: wander1 60s ease-in-out infinite;
+}
+.animate-wander-2 {
+  animation: wander2 80s ease-in-out infinite;
+}
+.animate-wander-3 {
+  animation: wander3 70s ease-in-out infinite;
+}
+
+@keyframes blobFade {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.1;
+  }
+}
+@keyframes blobSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-fade-random-1 {
+  animation: blobFade 25s ease-in-out infinite;
+}
+.animate-fade-random-2 {
+  animation: blobFade 30s ease-in-out infinite;
+}
+.animate-fade-random-3 {
+  animation: blobFade 40s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: blobSpin 100s linear infinite;
+}
