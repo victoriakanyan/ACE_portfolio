@@ -2,59 +2,101 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import Magnetic from "@/components/Magnetic"; // ✅ import the magnetic wrapper
+import { Link as ScrollLink } from "react-scroll";
+import { FaLinkedinIn, FaGithub, FaXTwitter } from "react-icons/fa6";
+import Magnetic from "@/components/Magnetic";
+
+const NAV_ITEMS = ["Home", "About", "Work", "Services", "Contact"];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [activeLink, setActiveLink] = useState("home");
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <motion.header
-      initial={{ y: -60, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all ${
+    <header
+      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-5xl px-6 py-4 rounded-3xl border transition-all ${
         scrolled
-          ? "backdrop-blur-md bg-white/10 border-b border-white/10 shadow-md"
-          : "bg-transparent"
+          ? "bg-white/5 backdrop-blur-xl border-white/10 shadow-md"
+          : "bg-white/0 border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
+      <div className="flex items-center justify-between w-full">
+        {/* Left: Logo */}
         <Magnetic>
           <motion.div whileHover={{ rotate: [0, 5, -5, 3, 0], scale: 1.05 }}>
-            <Link
-              href="/"
-              className="text-heading text-2xl font-bold tracking-tight"
+            <ScrollLink
+              to="home"
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-100}
+              className="text-heading text-2xl font-bold tracking-tight cursor-pointer"
             >
-              ACE
-            </Link>
+              <span className="font-mono">A</span>
+            </ScrollLink>
           </motion.div>
         </Magnetic>
-        {/* Nav links */}
-        <nav className="space-x-6 hidden md:flex">
-          {["Home", "Work", "Services", "About", "Contact"].map((item) => (
+
+        {/* Center: Nav Items */}
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+          {NAV_ITEMS.map((item) => (
             <Magnetic key={item}>
-              <Link
-                href={`#${item.toLowerCase()}`}
-                className="relative text-body hover:text-primary transition group"
+              <ScrollLink
+                to={item.toLowerCase()}
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-100}
+                onSetActive={() => setActiveLink(item.toLowerCase())}
+                className="relative cursor-pointer text-body hover:text-white transition-colors duration-300"
               >
-                {item}
-                {/* Underline hover animation */}
-                <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
-              </Link>
+                <span
+                  className={`px-1 ${
+                    activeLink === item.toLowerCase()
+                      ? "text-glow font-semibold"
+                      : ""
+                  }`}
+                >
+                  {item}
+                  {activeLink === item.toLowerCase() && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute left-0 -bottom-1 h-[2px] w-full rounded-full bg-white"
+                      transition={{
+                        type: "spring",
+                        stiffness: 500,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+                </span>
+              </ScrollLink>
             </Magnetic>
           ))}
         </nav>
+
+        {/* Right: Icons */}
+        <div className="flex items-center gap-4 text-white/70">
+          <Magnetic>
+            <FaLinkedinIn
+              className="hover:text-white cursor-pointer"
+              size={18}
+            />
+          </Magnetic>
+          <Magnetic>
+            <FaGithub className="hover:text-white cursor-pointer" size={18} />
+          </Magnetic>
+          <Magnetic>
+            <FaXTwitter className="hover:text-white cursor-pointer" size={18} />
+          </Magnetic>
+        </div>
       </div>
-    </motion.header>
+    </header>
   );
 }

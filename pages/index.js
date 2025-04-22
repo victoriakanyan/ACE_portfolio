@@ -27,10 +27,10 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <About />
         <Timeline />
         {/* <WorkSection /> */}
         <Services />
-        <About />
         <Contact />
       </main>
       <Footer />

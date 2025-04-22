@@ -6,6 +6,10 @@ body {
   @apply font-sans bg-transparent scroll-smooth;
 }
 
+.active-link {
+  @apply text-white font-semibold before:w-full;
+}
+
 .text-heading {
   color: #2e1a47; /* Midnight Purple */
 }
