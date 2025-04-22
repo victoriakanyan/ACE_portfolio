@@ -49,9 +49,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-      >
-        <ChevronDown className="w-6 h-6 text-white animate-bounce opacity-80" />
-      </motion.div>
+      ></motion.div>
     </section>
   );
 }
