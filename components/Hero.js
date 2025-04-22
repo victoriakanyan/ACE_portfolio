@@ -2,10 +2,14 @@
 
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import Magnetic from "@/components/Magnetic";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center text-center px-6 py-32">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center text-center px-6 py-32"
+    >
       {/* Glass Container */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -33,14 +37,16 @@ export default function Hero() {
           animated, performance-first websites for modern businesses.
         </motion.p>
 
-        <motion.a
-          href="#work"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
-          className="mt-10 inline-block px-6 py-3 text-lg font-medium bg-white/90 text-black rounded-full shadow-md hover:bg-white transition backdrop-blur-md"
-        >
-          See Our Work
-        </motion.a>
+        <Magnetic>
+          <motion.a
+            href="#work"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            className="mt-10 inline-block px-6 py-3 text-lg font-medium bg-white/90 text-black rounded-full shadow-md hover:bg-white transition backdrop-blur-md"
+          >
+            See Our Work
+          </motion.a>
+        </Magnetic>
       </motion.div>
 
       {/* Scroll Cue */}

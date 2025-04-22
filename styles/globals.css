@@ -3,12 +3,8 @@
 @tailwind utilities;
 
 body {
-  @apply font-mono bg-transparent text-white scroll-smooth;
+  @apply font-sans bg-transparent scroll-smooth;
 }
-
-/* =============================
-   🎨 ACE Text Color System
-   ============================= */
 
 .text-heading {
   color: #2e1a47; /* Midnight Purple */

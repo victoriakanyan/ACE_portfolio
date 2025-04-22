@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Magnetic from "@/components/Magnetic"; // ✅ import the magnetic wrapper
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,25 +29,29 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link
-          href="/"
-          className="text-heading text-2xl font-bold tracking-tight"
-        >
-          ACE
-        </Link>
-
+        <Magnetic>
+          <motion.div whileHover={{ rotate: [0, 5, -5, 3, 0], scale: 1.05 }}>
+            <Link
+              href="/"
+              className="text-heading text-2xl font-bold tracking-tight"
+            >
+              ACE
+            </Link>
+          </motion.div>
+        </Magnetic>
         {/* Nav links */}
         <nav className="space-x-6 hidden md:flex">
           {["Home", "Work", "Services", "About", "Contact"].map((item) => (
-            <Link
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="relative text-body hover:text-primary transition group"
-            >
-              {item}
-              {/* Underline hover animation */}
-              <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
+            <Magnetic key={item}>
+              <Link
+                href={`#${item.toLowerCase()}`}
+                className="relative text-body hover:text-primary transition group"
+              >
+                {item}
+                {/* Underline hover animation */}
+                <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </Magnetic>
           ))}
         </nav>
       </div>

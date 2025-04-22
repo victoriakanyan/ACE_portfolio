@@ -34,7 +34,7 @@ export default function TimelineItem({
         className={`relative z-10 group max-w-sm transition-all ${textAlign}`}
       >
         <div className="text-lg font-semibold text-body cursor-pointer">
-          {year} — {title}
+          {title}
         </div>
 
         <AnimatePresence>
