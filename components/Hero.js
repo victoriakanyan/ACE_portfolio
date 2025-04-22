@@ -1,61 +1,56 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section
-      className="relative text-center text-white overflow-hidden"
-      style={{
-        backgroundImage: "url('/duckduck.png')",
-        backgroundAttachment: "fixed",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* Gradient overlay for contrast */}
-      <div className="absolute inset-0 bg-black/50 z-0"></div>
-
-      <div className="relative z-10 py-48 px-4 max-w-5xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight"
-        >
-          We build websites that grow your business.
-        </motion.h2>
-
-        <motion.p
+    <section className="relative min-h-screen flex items-center justify-center text-center px-6 py-32">
+      {/* Glass Container */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="relative z-10 max-w-4xl mx-auto bg-white/10 backdrop-blur-md rounded-3xl border border-white/10 shadow-xl px-10 py-20"
+      >
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="mt-6 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto"
+          className="text-4xl md:text-6xl text-heading font-extrabold leading-tight tracking-tight"
         >
-          ACE is a digital studio run by Stylianos & Viktorya focused on modern,
-          effective, and elegant websites for small businesses.
+          We build websites
+          <br className="hidden md:block" /> that grow your business.
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+          className="mt-6 text-lg md:text-xl text-body"
+        >
+          ACE is a digital studio by Stylianos & Viktorya. We create sleek,
+          animated, performance-first websites for modern businesses.
         </motion.p>
 
-        {/* Call-to-action button */}
         <motion.a
-          href="#services"
+          href="#work"
           whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}
-          className="inline-block mt-10 px-6 py-3 bg-white text-black font-medium text-lg rounded-full shadow-lg hover:bg-gray-200 transition"
+          whileTap={{ scale: 0.97 }}
+          className="mt-10 inline-block px-6 py-3 text-lg font-medium bg-white/90 text-black rounded-full shadow-md hover:bg-white transition backdrop-blur-md"
         >
-          Discover Our Work
+          See Our Work
         </motion.a>
-      </div>
+      </motion.div>
 
-      {/* Scroll cue */}
+      {/* Scroll Cue */}
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 0, y: 5 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
       >
-        <ChevronDown className="animate-bounce w-6 h-6 text-white" />
+        <ChevronDown className="w-6 h-6 text-white animate-bounce opacity-80" />
       </motion.div>
     </section>
   );
