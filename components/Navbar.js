@@ -6,7 +6,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { FaLinkedinIn, FaGithub, FaXTwitter } from "react-icons/fa6";
 import Magnetic from "@/components/Magnetic";
 
-const NAV_ITEMS = ["Home", "About", "Work", "Services", "Contact"];
+const NAV_ITEMS = ["Home", "About", "Projects", "Contact"];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
