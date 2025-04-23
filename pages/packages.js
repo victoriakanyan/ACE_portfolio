@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Header from "../components/Navbar";
 import Footer from "../components/Footer";
 import Packages from "../components/Packages";
+import Navbar from "../components/Navbar";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 60 },
@@ -25,10 +26,10 @@ export default function PackagesPage() {
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
         >
+          <Navbar />
           <Packages />
+          <Footer />
         </motion.main>
-
-        <Footer />
       </div>
     </div>
   );

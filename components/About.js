@@ -20,7 +20,7 @@ const founders = [
 
 export default function About() {
   return (
-    <SectionWrapper id="about">
+    <SectionWrapper id="about" className="min-h-screen">
       {/* Heading */}
       <motion.h2
         initial={{ opacity: 0, y: 30 }}

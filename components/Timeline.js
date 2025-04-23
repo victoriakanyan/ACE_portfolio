@@ -10,7 +10,10 @@ export default function Timeline() {
   const [activeProjectSide, setActiveProjectSide] = useState(null);
 
   return (
-    <section id="projects" className="relative py-32 px-4 md:px-10">
+    <section
+      id="projects"
+      className="relative py-32 px-4 md:px-10 min-h-screen"
+    >
       <h2 className="text-center text-4xl md:text-5xl font-bold text-heading mb-20">
         Our Work Timeline
       </h2>
