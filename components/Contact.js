@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -13,8 +14,17 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: Plug in EmailJS or form logic here
-    alert("Message sent! (Mock)");
+
+    // Mock submit
+    setShowSuccess(true);
+
+    // Hide success message after 3 seconds
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 3000);
+
+    // Reset form
+    setForm({ name: "", email: "", message: "" });
   };
 
   return (
@@ -28,6 +38,21 @@ export default function Contact() {
       >
         Contact Us
       </motion.h2>
+
+      {/* Success Message */}
+      <AnimatePresence>
+        {showSuccess && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-6 text-glow font-medium"
+          >
+            🎉 Your message has been sent successfully!
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Form Container */}
       <motion.form
