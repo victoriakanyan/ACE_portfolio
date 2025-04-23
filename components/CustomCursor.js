@@ -24,17 +24,18 @@ export default function CustomCursor() {
 
   return (
     <motion.div
-      className="fixed z-[9999] pointer-events-none mix-blend-difference bg-peach rounded-full"
+      className="fixed z-[9999] pointer-events-none mix-blend-multiply bg-gradient-to-br from-[#c8a2ff] to-[#ff99cc] rounded-full shadow-md"
       style={{
-        width: 64,
-        height: 64,
+        width: 33,
+        height: 33,
         top: pos.y,
         left: pos.x,
         translateX: "-50%",
         translateY: "-50%",
         opacity: visible ? 1 : 0,
+        backgroundColor: "rgba(255, 255, 255, 0.05)", // subtle glass look
       }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      transition={{ type: "spring", stiffness: 100, damping: 20 }}
     />
   );
 }
