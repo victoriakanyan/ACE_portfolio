@@ -28,7 +28,6 @@ export default function Home() {
         <Hero />
         <About />
         <Timeline />
-        {/* <WorkSection /> */}
         <Contact />
       </main>
       <Footer />
