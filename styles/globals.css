@@ -2,13 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-a,
-button,
-input,
-textarea,
-select {
+* {
   cursor: none !important;
 }
 

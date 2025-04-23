@@ -1,11 +1,6 @@
 Light bulb hanging from a string on the top right of the website which is turned on and glowing and when clicked and dragged down, it stops glowing and cracks and the website theme is changed to dark.
 (VV, my love, my future wife, KYANKS <3)
 
-Packages on a seperate page and the button to access it in the navigation bar to the right
-
-In the packages page, include a calculator for the client to estimate the total cost of their website. 
-(KK, the love of my life)
-
 
 2. Magnetic Hover Buttons
 Make CTA buttons slightly "pull" toward the cursor on hover, using motion springs or custom CSS.
@@ -154,3 +149,7 @@ Playground Page     | All experimental tools: R3F, GSAP, Lottie, AI features
   A Three.js scene → toggle light/dark, control orbit camera, etc.
 
 ---
+
+
+
+

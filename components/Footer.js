@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
-import { Linkedin } from "lucide-react";
+import Magnetic from "@/components/Magnetic";
+import { FaLinkedinIn } from "react-icons/fa6";
 
 function LinkedInHover(props) {
   const { name, href } = props;
@@ -24,13 +25,12 @@ function LinkedInHover(props) {
           className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 p-2 rounded-xl shadow-lg z-10"
           style={{ backgroundColor: "#2e1a47" }}
         >
-          <Linkedin className="w-4 h-4 text-white" />
+          <FaLinkedinIn className="w-4 h-4 text-white" />
         </div>
       )}
     </a>
   );
 }
-
 
 export default function Footer() {
   return (
