@@ -38,7 +38,7 @@ export default function Navbar() {
               offset={-100}
               className="text-heading text-2xl font-bold tracking-tight cursor-pointer"
             >
-              <span className="font-mono">A</span>
+              <span className="font-mono">ACE</span>
             </ScrollLink>
           </motion.div>
         </Magnetic>
@@ -54,7 +54,7 @@ export default function Navbar() {
                 duration={500}
                 offset={-100}
                 onSetActive={() => setActiveLink(item.toLowerCase())}
-                className="relative cursor-pointer text-body hover:text-white transition-colors duration-300"
+                className="relative cursor-pointer text-body hover:text-purple transition-colors duration-300"
               >
                 <span
                   className={`px-1 ${
@@ -82,18 +82,21 @@ export default function Navbar() {
         </nav>
 
         {/* Right: Icons */}
-        <div className="flex items-center gap-4 text-white/70">
+        <div className="flex items-center gap-4 text-body">
           <Magnetic>
             <FaLinkedinIn
-              className="hover:text-white cursor-pointer"
+              className="hover:text-purple cursor-pointer"
               size={18}
             />
           </Magnetic>
           <Magnetic>
-            <FaGithub className="hover:text-white cursor-pointer" size={18} />
+            <FaGithub className="hover:text-purple cursor-pointer" size={18} />
           </Magnetic>
           <Magnetic>
-            <FaXTwitter className="hover:text-white cursor-pointer" size={18} />
+            <FaXTwitter
+              className="hover:text-purple cursor-pointer"
+              size={18}
+            />
           </Magnetic>
         </div>
       </div>
