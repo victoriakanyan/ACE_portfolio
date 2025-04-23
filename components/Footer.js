@@ -2,13 +2,11 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
-import { Linkedin } from "lucide-react";
 import { useState } from "react";
+import { Linkedin } from "lucide-react";
 
 function LinkedInHover(props) {
-    const { name, href, image, title } = props;
-  
+  const { name, href } = props;
   const [showInfo, setShowInfo] = useState(false);
 
   return (
@@ -16,32 +14,23 @@ function LinkedInHover(props) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative group inline-flex items-center gap-1 hover:text-white transition"
+      className="relative group inline-flex items-center gap-1 transition hover:text-glow"
       onMouseEnter={() => setShowInfo(true)}
       onMouseLeave={() => setShowInfo(false)}
     >
       {name}
-      <Linkedin className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       {showInfo && (
-        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-2 rounded-xl text-xs bg-white/10 backdrop-blur-sm text-white shadow-lg z-10">
-          <div className="flex items-center gap-2">
-            <Image
-              src={image}
-              alt={name}
-              width={24}
-              height={24}
-              className="rounded-full"
-            />
-            <div>
-              <div className="font-semibold">{name}</div>
-              <div className="text-[10px] text-white/70">{title}</div>
-            </div>
-          </div>
+        <div
+          className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 p-2 rounded-xl shadow-lg z-10"
+          style={{ backgroundColor: "#2e1a47" }}
+        >
+          <Linkedin className="w-4 h-4 text-white" />
         </div>
       )}
     </a>
   );
 }
+
 
 export default function Footer() {
   return (
@@ -53,36 +42,19 @@ export default function Footer() {
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="text-body text-center md:text-left">
-          © {new Date().getFullYear()} ACE. Built by{" "}
+          © {new Date().getFullYear()} ACE Nicyan. Built by{" "}
           <LinkedInHover
             name="Stylianos"
             href="https://www.linkedin.com/in/stylianos-nicolaou-4b00a3304/"
-            image="/stylianos.jpg"
             title="Computer Science Student & CO-Founder of ACE"
           />{" "}
           &{" "}
           <LinkedInHover
             name="Viktorya"
             href="https://www.linkedin.com/in/victoria-voskanyan-38a67b1a2/"
-            image="/viktorya.jpg"
             title="Computer Science Student & CO-Founder of ACE"
           />
         </p>
-
-        <div className="space-x-4 text-body">
-          <Link href="#work" className="hover:text-white transition">
-            Work
-          </Link>
-          <Link href="#services" className="hover:text-white transition">
-            Services
-          </Link>
-          <Link href="#about" className="hover:text-white transition">
-            About
-          </Link>
-          <Link href="#contact" className="hover:text-white transition">
-            Contact
-          </Link>
-        </div>
       </div>
     </motion.footer>
   );
