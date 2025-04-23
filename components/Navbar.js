@@ -6,13 +6,14 @@ import { Link as ScrollLink } from "react-scroll";
 import { FaLinkedinIn, FaGithub, FaXTwitter } from "react-icons/fa6";
 import Magnetic from "@/components/Magnetic";
 import Link from "next/link";
-
+import { usePathname } from "next/navigation";
 
 const NAV_ITEMS = ["Home", "About", "Projects", "Contact"];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
+  const pathname = usePathname(); // to know if we're on homepage
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -32,61 +33,74 @@ export default function Navbar() {
         {/* Left: Logo */}
         <Magnetic>
           <motion.div whileHover={{ rotate: [0, 5, -5, 3, 0], scale: 1.05 }}>
-            <ScrollLink
-              to="home"
-              spy={true}
-              smooth={true}
-              duration={500}
-              offset={-100}
-              className="text-heading text-2xl font-bold tracking-tight cursor-pointer"
-            >
-              <span className="font-mono">ACE</span>
-            </ScrollLink>
+            {pathname === "/" ? (
+              <ScrollLink
+                to="home"
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-100}
+                className="text-heading text-2xl font-bold tracking-tight cursor-pointer"
+              >
+                <span className="font-mono">ACE</span>
+              </ScrollLink>
+            ) : (
+              <Link
+                href="/"
+                className="text-heading text-2xl font-bold tracking-tight cursor-pointer"
+              >
+                <span className="font-mono">ACE</span>
+              </Link>
+            )}
           </motion.div>
         </Magnetic>
 
         {/* Center: Nav Items */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
-          {NAV_ITEMS.map((item) => (
-            <Magnetic key={item}>
-              <ScrollLink
-                to={item.toLowerCase()}
-                spy={true}
-                smooth={true}
-                duration={500}
-                offset={-100}
-                onSetActive={() => setActiveLink(item.toLowerCase())}
-                className="relative cursor-pointer text-body hover:text-purple transition-colors duration-300"
-              >
-                <span
-                  className={`px-1 ${
-                    activeLink === item.toLowerCase()
-                      ? "text-glow font-semibold"
-                      : ""
-                  }`}
+          {pathname === "/" &&
+            NAV_ITEMS.map((item) => (
+              <Magnetic key={item}>
+                <ScrollLink
+                  to={item.toLowerCase()}
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                  offset={-100}
+                  onSetActive={() => setActiveLink(item.toLowerCase())}
+                  className="relative cursor-pointer text-body hover:text-purple transition-colors duration-300"
                 >
-                  {item}
-                  {activeLink === item.toLowerCase() && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute left-0 -bottom-1 h-[2px] w-full rounded-full bg-white"
-                      transition={{
-                        type: "spring",
-                        stiffness: 500,
-                        damping: 30,
-                      }}
-                    />
-                  )}
-                </span>
-              </ScrollLink>
-            </Magnetic>
-          ))}
+                  <span
+                    className={`px-1 ${
+                      activeLink === item.toLowerCase()
+                        ? "text-glow font-semibold"
+                        : ""
+                    }`}
+                  >
+                    {item}
+                    {activeLink === item.toLowerCase() && (
+                      <motion.span
+                        layoutId="nav-underline"
+                        className="absolute left-0 -bottom-1 h-[2px] w-full rounded-full bg-white"
+                        transition={{
+                          type: "spring",
+                          stiffness: 500,
+                          damping: 30,
+                        }}
+                      />
+                    )}
+                  </span>
+                </ScrollLink>
+              </Magnetic>
+            ))}
         </nav>
 
-        {/* Right: Icons */}
+        {/* Right: External Links */}
         <div className="flex items-center gap-4 text-body">
-          <Link href="/packages">Packages</Link>
-
+          {pathname !== "/packages" && (
+            <Link href="/packages" className="hover:text-purple transition-colors">
+              Packages
+            </Link>
+          )}
         </div>
       </div>
     </header>
