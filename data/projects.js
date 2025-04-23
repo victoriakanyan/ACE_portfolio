@@ -6,7 +6,7 @@ const projects = [
     description:
       "A modern portfolio website for a creative karate design brand. Includes interactive animations, a dynamic gallery, and pastel neon branding.",
     link: "https://karatedesignscn.com",
-    image: "/projects/karatedesigns.mov", // or GIF/MP4
+    image: "/projects/karatedesigns.mp4", // or GIF/MP4
     tech: [
       { name: "Next.js", icon: "/icons/nextjs.svg" },
       { name: "Tailwind CSS", icon: "/icons/tailwind.svg" },
@@ -17,12 +17,18 @@ const projects = [
   },
 
   {
-    id: 1,
-    title: "E-Commerce Website",
-    year: "2023",
+    id: "ace-workout",
+    title: "The ACE Gym",
+    year: "2025",
     side: "left",
     description:
-      "A full-stack ecommerce platform built with Next.js and Stripe integration.",
+      "An interactive workout tracker perfect for gym partners.",
+    link: "https://workout-woad.vercel.app/",
+    image: "/projects/aceGym.mp4",
+    tech: [
+
+    ],
+    side: "left",
   },
   {
     id: 2,
