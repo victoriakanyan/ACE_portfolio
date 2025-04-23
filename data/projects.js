@@ -21,12 +21,16 @@ const projects = [
     title: "The ACE Gym",
     year: "2025",
     side: "left",
-    description:
-      "An interactive workout tracker perfect for gym partners.",
+    description: "An interactive workout tracker perfect for gym partners.",
     link: "https://workout-woad.vercel.app/",
     image: "/projects/aceGym.mp4",
     tech: [
-
+      { name: "HTML5", icon: "/icons/html.svg" },
+      { name: "CSS3", icon: "/icons/css.svg" },
+      { name: "JavaScript", icon: "/icons/javascript.svg" },
+      { name: "React", icon: "/icons/react.svg" },
+      { name: "Tailwind CSS", icon: "/icons/tailwind.svg" },
+      { name: "Firebase", icon: "/icons/firebase.svg" },
     ],
     side: "left",
   },

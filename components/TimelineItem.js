@@ -62,12 +62,12 @@ export default function TimelineItem({
                   className="block mb-4 rounded-xl overflow-hidden border border-white/10"
                 >
                   <video
-                    src="/projects/karatedesigns.mp4"
+                    src={image}
                     autoPlay
                     muted
                     loop
                     playsInline
-                    className="w-full h-40 object-cover rounded-xl hover:scale-[1.02] transition-transform duration-300"
+                    className="w-full h-full object-cover rounded-xl hover:scale-[1.02] transition-transform duration-300"
                   />
                 </a>
               )}
