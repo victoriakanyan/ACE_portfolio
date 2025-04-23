@@ -18,8 +18,6 @@ export default function PackagesPage() {
     >
       {/* Full content on top of glossy background */}
       <div className="relative z-10">
-        <Header />
-
         <motion.main
           id="packages"
           variants={fadeIn}
