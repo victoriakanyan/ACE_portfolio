@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
 import { FaLinkedinIn, FaGithub, FaXTwitter } from "react-icons/fa6";
 import Magnetic from "@/components/Magnetic";
+import Link from "next/link";
+
 
 const NAV_ITEMS = ["Home", "About", "Projects", "Contact"];
 
@@ -83,21 +85,8 @@ export default function Navbar() {
 
         {/* Right: Icons */}
         <div className="flex items-center gap-4 text-body">
-          <Magnetic>
-            <FaLinkedinIn
-              className="hover:text-purple cursor-pointer"
-              size={18}
-            />
-          </Magnetic>
-          <Magnetic>
-            <FaGithub className="hover:text-purple cursor-pointer" size={18} />
-          </Magnetic>
-          <Magnetic>
-            <FaXTwitter
-              className="hover:text-purple cursor-pointer"
-              size={18}
-            />
-          </Magnetic>
+          <Link href="/packages">Packages</Link>
+
         </div>
       </div>
     </header>
