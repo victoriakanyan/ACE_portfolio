@@ -97,9 +97,14 @@ export default function Navbar() {
         {/* Right: External Links */}
         <div className="flex items-center gap-4 text-body">
           {pathname !== "/packages" && (
-            <Link href="/packages" className="hover:text-purple transition-colors">
-              Packages
-            </Link>
+            <Magnetic>
+              <Link
+                href="/packages"
+                className="hover:text-purple transition-colors"
+              >
+                Packages
+              </Link>
+            </Magnetic>
           )}
         </div>
       </div>

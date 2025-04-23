@@ -84,40 +84,41 @@ export default function PackagesPage() {
       viewport={{ once: true, amount: 0.3 }}
     >
       <SectionWrapper>
-        <h2 className="text-heading text-3xl md:text-4xl font-extrabold text-center mb-12 text-glow">
+        <h2 className="text-heading text-3xl md:text-4xl font-extrabold text-center mb-12 text-heading">
           Website Development Packages
         </h2>
 
         <div className="relative overflow-auto mx-auto max-w-5xl rounded-2xl backdrop-blur-2xl bg-white/10 border border-white/30 shadow-[0_25px_50px_rgba(0,0,0,0.2)] overflow-hidden">
-        {/* Animated Reflection Layer */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+          {/* Animated Reflection Layer */}
+          <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
             <div className="absolute w-1/2 h-full bg-gradient-to-br from-white/50 to-transparent opacity-20 animate-glint" />
-        </div>
+          </div>
 
-  {/* Table content goes here */}
+          {/* Table content goes here */}
 
-          <table className="w-full text-left text-sm text-white text-glow border-separate border-spacing-y-3">
+          <table className="w-full text-left text-sm text-body border-separate border-spacing-y-3">
             <thead>
               <tr>
                 <th className="p-4">Features</th>
                 {packages.map((pkg, i) => (
-                    <th key={i} className="p-4 text-center">
-                    <div className="font-semibold text-base text-glow">{pkg.name}</div>
-                    <div className="mt-2 inline-block px-5 py-2 rounded-full bg-[#2e1a47]/40 backdrop-blur-md border border-white/20 text-white text-base font-bold text-[#c1c8e4] shadow-[inset_0_0_6px_rgba(255,255,255,0.2)]">
-                        {pkg.price}
+                  <th key={i} className="p-4 text-center">
+                    <div className="font-semibold text-base text-glow">
+                      {pkg.name}
                     </div>
-
-                    </th>
-
-
-                
+                    <div className="mt-2 inline-block px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-body text-base">
+                      {pkg.price}
+                    </div>
+                  </th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {features.map((feature, idx) => (
-                <tr key={idx} className="hover:bg-white/5 transition-colors duration-300">
-                  <td className="p-4 font-medium">{feature}</td>
+                <tr
+                  key={idx}
+                  className="hover:bg-white/20 transition-colors duration-300"
+                >
+                  <td className="p-4 text-md font-bold text-glow">{feature}</td>
                   {packages.map((pkg, i) => (
                     <td key={i} className="p-4 text-center">
                       {pkg.values[idx] === "✔" ? (
@@ -136,13 +137,25 @@ export default function PackagesPage() {
         </div>
 
         {/* Add-ons */}
-        <h3 className="text-2xl font-bold mt-12 mb-4 text-glow">Add-on Services</h3>
+        <h3 className="text-2xl font-bold mt-12 mb-4 text-glow">
+          Add-on Services
+        </h3>
         <ul className="list-disc list-inside text-sm space-y-2 text-glow">
-          <li><strong>SEO Optimization</strong> – €300 / €200 (for full sites)</li>
-          <li><strong>Extra Page</strong> – €30 - €100</li>
-          <li><strong>Multilingual Support</strong> – €100/language (3 pages)</li>
-          <li><strong>Extra Multilingual Page</strong> – €20 - €50</li>
-          <li><strong>Custom Animations & Effects</strong> – €50</li>
+          <li>
+            <strong>SEO Optimization</strong> – €300 / €200 (for full sites)
+          </li>
+          <li>
+            <strong>Extra Page</strong> – €30 - €100
+          </li>
+          <li>
+            <strong>Multilingual Support</strong> – €100/language (3 pages)
+          </li>
+          <li>
+            <strong>Extra Multilingual Page</strong> – €20 - €50
+          </li>
+          <li>
+            <strong>Custom Animations & Effects</strong> – €50
+          </li>
         </ul>
       </SectionWrapper>
     </motion.div>

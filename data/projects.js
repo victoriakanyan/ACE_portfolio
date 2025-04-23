@@ -1,5 +1,22 @@
 const projects = [
   {
+    id: "karate-designs",
+    title: "Karate Designs CN",
+    year: "2025",
+    description:
+      "A modern portfolio website for a creative karate design brand. Includes interactive animations, a dynamic gallery, and pastel neon branding.",
+    link: "https://karatedesignscn.com",
+    image: "/projects/karatedesigns.mov", // or GIF/MP4
+    tech: [
+      { name: "Next.js", icon: "/icons/nextjs.svg" },
+      { name: "Tailwind CSS", icon: "/icons/tailwind.svg" },
+      { name: "React", icon: "/icons/react.svg" },
+      { name: "EmailJS", icon: "/icons/emailjs.svg" },
+    ],
+    side: "right",
+  },
+
+  {
     id: 1,
     title: "E-Commerce Website",
     year: "2023",
